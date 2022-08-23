@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"log"
+	"math/rand"
 	"net/http"
 	"os"
 	"os/exec"
@@ -262,6 +263,7 @@ func (client IBMCloudClient) createFloatingIP(state multistep.StateBag) (*vpcv1.
 	networkInterfaceID := *instanceNetworkInterface.ID
 
 	options := &vpcv1.CreateFloatingIPOptions{}
+	config.FloatingIPName = config.FloatingIPName + fmt.Sprintf("-%d", rand.Intn(100))
 	options.SetFloatingIPPrototype(&vpcv1.FloatingIPPrototype{
 		Name: &config.FloatingIPName,
 		Target: &vpcv1.FloatingIPByTargetNetworkInterfaceIdentityNetworkInterfaceIdentityByID{
