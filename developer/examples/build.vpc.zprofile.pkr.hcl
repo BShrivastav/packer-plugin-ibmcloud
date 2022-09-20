@@ -53,12 +53,12 @@ source "ibmcloud-vpc" "zprofile" {
   vsi_interface      = "public"
   vsi_user_data_file = ""
 
-  image_name = "packer-zprofile-bz2-2x8-${local.timestamp}"
+  image_name = "packer-zprofile-${local.timestamp}"
 
   communicator = "ssh"
   ssh_username = "ibmuser"
   ssh_port     = 22
-  ssh_timeout  = "8m"
+  ssh_timeout  = "20m"
 
   timeout = "20m"
 }
