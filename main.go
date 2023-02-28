@@ -17,6 +17,7 @@ func main() {
 	pps := plugin.NewSet()
 	pps.RegisterBuilder("vpc", new(vpc.Builder))
 	pps.RegisterBuilder("classic", new(classic.Builder))
+	// pps.RegisterPostProcessor("vpc-image-crc", new(vpc-image-crc))
 	pps.SetVersion(version.IBMCloudPluginVersion)
 	err := pps.Run()
 	log.Println("IBM Cloud Packer Plugin Version", version.IBMCloudPluginVersion)

@@ -32,6 +32,15 @@ variable "SECURITY_GROUP_ID" {
 // variable "IAM_URL" {
 //   type = string
 // }
+variable "POST_REGION" {
+  type = string
+  default = "jp_tok"
+}
+
+variable "POST_ENCRYPTION_KEY" {
+  type = string
+  default = "sample:crn"
+}
 
 
 locals {
@@ -73,4 +82,13 @@ build {
       "echo 'Hello from IBM Cloud Packer Plugin - VPC Infrastructure' >> /hello.txt"
     ]
   }
+
+  post-processor "image-copy" {
+    name = "image-copy-${var.TARGET_REGION}"
+    source_image = "CRN:of:the:source:image"
+    region = var.TARGET_REGION 
+  }
+  // vpn instance
+  // token
+
 }

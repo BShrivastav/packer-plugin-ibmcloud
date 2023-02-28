@@ -9,6 +9,7 @@ require (
 	github.com/hashicorp/packer-plugin-sdk v0.2.9
 	github.com/zclconf/go-cty v1.9.1
 	golang.org/x/crypto v0.5.0
+	google.golang.org/grpc v1.45.0
 )
 
 require (
@@ -110,8 +111,9 @@ require (
 	google.golang.org/api v0.74.0 // indirect
 	google.golang.org/appengine v1.6.7 // indirect
 	google.golang.org/genproto v0.0.0-20220405205423-9d709892a2bf // indirect
-	google.golang.org/grpc v1.45.0 // indirect
 	google.golang.org/protobuf v1.28.0 // indirect
 	gopkg.in/go-playground/validator.v9 v9.31.0 // indirect
 	gopkg.in/square/go-jose.v2 v2.6.0 // indirect
 )
+
+replace github.com/IBM/vpc-go-sdk v0.29.0 => ./github.com/IBM/vpc-go-sdk
