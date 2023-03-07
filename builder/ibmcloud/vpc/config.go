@@ -35,6 +35,7 @@ type Config struct {
 	VSIProfile                string `mapstructure:"vsi_profile"`
 	VSIInterface              string `mapstructure:"vsi_interface"`
 	VSIUserDataFile           string `mapstructure:"vsi_user_data_file"`
+	VSIUserDataString         string `mapstructure:"vsi_user_data_string"`
 
 	ImageName string `mapstructure:"image_name"`
 

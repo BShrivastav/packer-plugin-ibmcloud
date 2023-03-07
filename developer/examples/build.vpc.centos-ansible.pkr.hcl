@@ -42,7 +42,8 @@ source "ibmcloud-vpc" "centos" {
   vsi_base_image_name = "ibm-centos-7-9-minimal-amd64-5"
   vsi_profile         = "bx2-2x8"
   vsi_interface       = "public"
-  vsi_user_data_file  = "scripts/postscript.sh"
+  // vsi_user_data_file  = "scripts/postscript.sh"
+  vsi_user_data_string =  " #!/bin/bash echo this is as string data: Bhavesh"
 
   image_name = "packer-${local.timestamp}"
 
@@ -67,8 +68,8 @@ build {
     ]
   }
 
-  provisioner "ansible" {
-    playbook_file = "provisioner/centos-playbook.yml"
-  }
+  // provisioner "ansible" {
+  //   playbook_file = "provisioner/centos-playbook.yml"
+  // }
 
 }
