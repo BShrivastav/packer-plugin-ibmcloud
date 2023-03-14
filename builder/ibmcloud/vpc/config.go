@@ -113,6 +113,11 @@ func (c *Config) Prepare(raws ...interface{}) ([]string, error) {
 		}
 	}
 
+	// Check for mutual exclusion of User data input via file or as a string.
+	if c.VSIUserDataFile != "" && c.VSIUserDataString != "" {
+		errs = packer.MultiErrorAppend(errs, errors.New("mutual exclusion: User data input, either a file as in vsi_user_data_file could be used or a string in vsi_user_data_string, together are not supported"))
+	}
+
 	if c.ImageName == "" {
 		c.ImageName = fmt.Sprintf("packer-vpc-%d", currentTime.Unix())
 	}
