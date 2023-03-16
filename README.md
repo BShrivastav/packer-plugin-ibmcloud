@@ -199,7 +199,8 @@ vsi_profile | string | The profile this VSI uses. Required.
 vsi_interface | string | Set it as "public" to create a Floating IP to connect to the temp VSI. Set it as "private" to use private interface to connect to the temp VSI. Later option requires you run packer plugin inside your VPC.
 | |
 | |
-vsi_user_data_file | string | User data to be made available when setting up the virtual server instance. Optional.
+vsi_user_data_file | string | User data to be made available when setting up the virtual server instance. Optional. Mutually exclusive with vsi_user_data_string.
+vsi_user_data_string | string | User data to be made available when setting up the virtual server instance. Optional. Mutually exclusive with vsi_user_data_file.
 vpc_endpoint_url | string | Configure URL for VPC test environments. Optional.
 iam_url | string | Configure URL for IAM test environments. Optional.
 image_name | string | The name of the resulting custom Image that will appear in your account. Required.
